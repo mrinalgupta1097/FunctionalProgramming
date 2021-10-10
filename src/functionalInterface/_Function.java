@@ -24,8 +24,8 @@ public class _Function {
 
     //    BiFunction - takes two arguments and produces result
     System.out.println("Normal Java : " + incrementAndMultiply(4, 100));
-    System.out.println("Functional Programming Java : " + incrementByOneANdMultiplyBiFunction.apply(4,100));
-
+    System.out.println(
+        "Functional Programming Java : " + incrementByOneANdMultiplyBiFunction.apply(4, 100));
   }
 
   static int increment(int number) {
