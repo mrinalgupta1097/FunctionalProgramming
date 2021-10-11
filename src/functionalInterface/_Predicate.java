@@ -1,5 +1,7 @@
 package functionalInterface;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.Predicate;
 
 public class _Predicate {
@@ -14,7 +16,7 @@ public class _Predicate {
             + isPhoneNumberValidPredicate.and(containsNumber3).test("07000300000"));
   }
   // Plain Java Style
-  static boolean isPhoneNUmberValid(String phoneNumber) {
+  static boolean isPhoneNUmberValid(@NotNull String phoneNumber) {
     return phoneNumber.startsWith("07") && phoneNumber.length() == 11;
   }
 
