@@ -3,6 +3,7 @@ package streams;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.LongConsumer;
+import java.util.function.Predicate;
 import java.util.function.ToLongFunction;
 
 import static streams._Stream.Gender.FEMALE;
@@ -23,10 +24,21 @@ public class _Stream {
     ToLongFunction<String> length = String::length;
     LongConsumer println = System.out::println;
 
-    people.stream()
-        .map(personStringFunction)
-        .mapToLong(length)
-        .forEach(println);
+    //    people.stream()
+    //        .map(personStringFunction)
+    //        .mapToLong(length)
+    //        .forEach(println);
+
+    Predicate<Person> personPredicate = person -> FEMALE.equals(person.gender);
+    boolean containsOnlyFemales = people.stream().anyMatch(personPredicate);
+    /*
+     * allMatch() : true if all matches the condition.
+     * anyMatch() : true if anyone matches the condition.
+     * noneMatch() : true if none matches the condition.
+     * */
+
+    System.out.println(containsOnlyFemales);
+
   }
 
   static class Person {
